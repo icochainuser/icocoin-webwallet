@@ -24,19 +24,42 @@ let gen_address = function(seed) {
 let restore_keypair = function(wif) {
 	return new icocoin.ECPair.fromWIF(wif)
 }
+// create a random key as the transaction pending-id
+let genrk = function() {
+	var prek = ''
+	var seedstring = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+	for (var i =0;i<8;i++) {
+		prek += seedstring[parseInt((seedstring.length-1) * Math.random())]
+	}
+	prek += (new Date()).valueOf()
+	return prek
+}
 // add the send command to sequence
-let addSendSeq = function(toaddress, amount) {
+let addToSendSeq = function(toaddress, amount) {
 	var sequence = []
 	if (localStorage.getItem('sendsequence')) {
 		sequence = JSON.parse(localStorage.getItem('sendsequence'))
 	}
 	sequence.push({
+		id: genrk(),
 		to: toaddress,
 		amount: amount
 	});
-	//localStorage.setItem('sendsequence', '');
 	localStorage.setItem('sendsequence', JSON.stringify(sequence));
-	console.error(sequence);
+}
+// delete a pending id from send sequence
+let deleteFromSendSeq = function(txPendingId) {
+	if (txPendingId == '' || typeof(txPendingId) == 'undefined') return
+	var sequence = []
+	if (localStorage.getItem('sendsequence')) {
+		sequence = JSON.parse(localStorage.getItem('sendsequence'))
+	}
+	for (var i in sequence) {
+		if (sequence[i].id == txPendingId) {
+			sequence.splice(i, 1)
+			localStorage.setItem('sendsequence', JSON.stringify(sequence));
+		}
+	}
 }
 // send ico
 let sendto = function(toaddress, amount) {
@@ -118,10 +141,12 @@ $(document).ready(() =>{
 	localStorage.setItem('auth', encode('KwcioBaNd3hzASf8FQokJTqL63DWJScKoDQUxtZoLR6SLBJ8EvGS','000000'));
 	localStorage.setItem('authtype', 'wif')
 	//console.error()
-	addSendSeq('i5wicD2f3KYkLDUGk7KRjeT2qGv2KECaFn', (0.010 + Math.random()/10000).toFixed(8))
+	// addToSendSeq('i5wicD2f3KYkLDUGk7KRjeT2qGv2KECaFn', (0.010 + Math.random()/10000).toFixed(8))
+	deleteFromSendSeq('WQNHBVVL1522040525983');
+	console.error(JSON.parse(localStorage.getItem('sendsequence')));
 	setTimeout(function() {
 		window.location.reload()
-	}, 30000);
+	}, 3000000);
 
 /*
 	

@@ -1,0 +1,83 @@
+.login-container{
+	overflow: hidden;
+	min-width: 345px;
+}
+.login-container .logo img{
+	max-width: 60%;
+	display: block;
+	margin: 50px auto 0 auto;
+}
+.login-container .input-park .title-1,
+.account-generate .input-park .title-1{
+	font-size: 22px;
+	color: #777;
+	text-align: center;
+	font-weight:  bold;
+	margin: 30px 0 12px 0;
+}
+.login-container .input-park .title-2{
+	font-size: 14px;
+	color: #777;
+	text-align: center;
+	line-height: 18px;
+}
+.input-park .title-2 i.circle{
+	font-size: 12px;
+	background: orange;
+	color: #fff;
+	padding: 0 4px;
+	border-radius: 50%;
+	font-style: normal;
+	vertical-align: bottom;
+	margin-left:  5px;
+}
+.input-park .password-group{
+	padding: 0 8%;
+	margin-top: 12px;
+}
+.password-group #password{
+	margin-bottom: 12px;
+}
+.password-group #password,.password-group #confirm-password {
+	border-radius: 0;
+}
+.password-group a.confirm-btn,
+.password-group a.back-to-login {
+	cursor: pointer;
+	text-align: center;
+	display:  block;
+	padding: 12px 18px;
+	background: #F7861C;
+	box-shadow: 0px 3px 6px rgba(247, 134, 28, 0.36);
+	color: white;
+	font-size: 16px;
+	text-transform: uppercase;
+	border: 0;
+	margin: 12px auto 0 auto;
+}
+.password-group a.back-to-login {
+	background: #0d8f20;
+}
+.password-group a.confirm-btn:hover {
+	transform: scale(1.1);
+}
+.password-group a.import {
+	color: #F7861C;
+	font-size: 14px;
+	text-decoration: underline;
+	display: block;
+	width: 100%;
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.password-group a.import.acc {
+	color: #1e6eb3;
+}
+.account-generate a.import.back-to-login {
+
+}
+.seed-warning {
+	display: block;
+	padding: 0 
+}

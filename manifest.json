@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+    "name": "Wallet",
+    "version": "1.0.0",
+    "description": "Wallet",
+    "icons":
+    {
+        "16": "image/icon.png",
+        "48": "image/icon.png",
+        "128": "image/icon.png"
+    },
+    "browser_action": 
+    {
+        "default_icon": "image/icon.png",
+        "default_title": "Test Version",
+        "default_popup": "AccountAuth.html"
+    }
+}

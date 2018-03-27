@@ -1,0 +1,102 @@
+.account-container{
+	overflow: hidden;
+	min-width: 345px;
+}
+.account-container .top-title{
+	padding: 10px 15px;
+	background: #fff;
+}
+.account-container .top-title img{
+	display: inline-block;
+	max-width: 15%;
+}
+.top-title .account-total{
+	display: inline-block;
+	vertical-align:  top;
+	margin-left: 15px;
+}
+.top-title .account-total span{
+	display: block;
+}
+.top-title .account-total span:nth-child(1){
+	font-size: 20px;
+}
+.top-title .account-total span:nth-child(2){
+	font-size: 14px;
+	color: #777;
+	margin-top: 10px;
+}
+.top-title .balance{
+	margin-top: 15px;
+}
+.top-title .balance div{
+	width: 49%;
+	display: inline-block;
+	vertical-align:  middle;
+}
+.top-title .balance .left span{
+	display: block;
+	font-size: 12px;
+}
+.top-title .balance .left span:nth-child(1){
+	color: #7346005c;
+	font-weight:  600;
+	margin-bottom: 10px;
+}
+.top-title .balance .left span:nth-child(2){
+	color: #444;
+}
+.balance .left span i{
+	font-style: normal;
+	font-size: 12px;
+	color: #777;
+	margin-left: 5px;
+}
+.top-title .balance button.send-btn{
+	display:  block;
+	padding: 8px 14px;
+	background: #F7861C;
+	box-shadow: 0px 3px 6px rgba(247, 134, 28, 0.36);
+	color: white;
+	font-size: 16px;
+	text-transform: uppercase;
+	border: 0;
+	margin: 0 auto;
+}
+.top-title .balance button.send-btn:hover{
+	transform: scale(1.1);
+}
+.account-container .transaction{
+	padding: 10px 15px 0px 15px;
+	margin-top: 10px;
+	background: #fff;
+}
+.account-container .transaction h4{
+	font-weight: bold;
+	color: #007cff;
+	text-align: center;
+	margin-bottom: 10px;
+	max-height: 300px;
+}
+.transaction-history{
+	max-height: 200px;
+	overflow: auto;
+}
+.account-container .transaction .transaction-history p{
+	font-size: 12px;
+	margin-bottom: 10px;
+}
+.transaction .transaction-history p i{
+	float: right;
+	font-style: normal;
+	color: #777;
+}
+.account-generate #seed {
+	display: block;
+	width: 60%;
+	height: 120px;
+	margin: 8px auto;
+}
+.account-generate .seed-warning {
+	color: #f00;
+}

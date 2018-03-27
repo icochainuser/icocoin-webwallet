@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0" />
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/import-new-page.css">
+	<script src="js/app.js"></script>
+	<title>Import</title>
+</head>
+<body>
+	<div class="import-container">
+		<p class="top-header">
+			RESTORE VAULT
+		</p>
+		<div class="code-area col-xs-12">
+			<p>Wallet Seed</p>
+			<textarea name="seed" id="" class="form-control" rows="6" placeholder="Enter your secret twelve word phrase here to restore your vault."></textarea>
+			<input type="password" class="form-control" placeholder="New Password (min 8 chars)" id="password">
+			<input type="password" class="form-control" placeholder="Confirm Password" id="confirm-password">
+			<div>
+				<p class="error-msg"></p>
+			</div>
+			<div class="btns">
+				<a class="cancel" href="login.html">CANCEL</a>
+				<a class="confirm-input">OK</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

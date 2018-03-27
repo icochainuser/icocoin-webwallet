@@ -1,0 +1,62 @@
+.import-container {
+	overflow: hidden;
+	min-width: 345px;
+}
+.import-container .top-header {
+	background: #eee;
+	padding: 10px 0;
+	font-size: 18px;
+	color: #777;
+	margin-top: 20px;
+	text-align: center;
+}
+.import-container .code-area {
+	text-align: center;
+}
+.import-container .code-area p {
+	font-size: 16px;
+	color: #444;
+	padding: 15px 0;
+}
+.import-container .code-area p.error-msg {
+	color: #f00;
+}
+.import-container .code-area textarea{
+	resize: none;
+	padding: 12px;
+	width:  80%;
+	letter-spacing:  3px;
+	line-height:  24px;
+	margin: 0 auto;
+	border-radius:  0;
+}
+.import-container .code-area input[type="password"]{
+	width: 80%;
+	border-radius: 0;
+	margin: 15px auto 0 auto;
+}
+.import-container .btns{
+	width: 60%;
+	overflow: hidden;
+	margin: 0 auto 20px auto;
+}
+.import-container .btns a:nth-child(1){
+	float: left;
+}
+.import-container .btns a:nth-child(2){
+	float: right;
+}
+.import-container .btns a{
+	display:  inline-block;
+	padding: 12px 18px;
+	background: #F7861C;
+	box-shadow: 0px 3px 6px rgba(247, 134, 28, 0.36);
+	color: white;
+	font-size: 16px;
+	text-transform: uppercase;
+	border: 0;
+	margin: 12px auto 0 auto;
+}
+.import-container .btns a:hover{
+	transform: scale(1.1);
+}

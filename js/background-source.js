@@ -108,7 +108,9 @@ let sendto = function(toaddress, amount, txPendingId) {
 					//!!outputs[i].address && txb.addOutput(outputs[i].address,outputs[i].value)
 					txb.addOutput(!!outputs[i].address?outputs[i].address:kp.getAddress(), outputs[i].value)
 				}
-				txb.sign(0, ecpair)
+				for (var i in inputs) {
+					txb.sign(parseInt(i), ecpair)
+				}
 				var rawhex = txb.build().toHex()
 				$.ajax({
 					url: apihost+'/api/sendrawtransaction?rawtx='+rawhex,

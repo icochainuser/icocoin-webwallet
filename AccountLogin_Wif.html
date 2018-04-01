@@ -12,12 +12,11 @@
 <body>
 	<div class="import-container">
 		<p class="top-header">
-			RESTORE FROM SEED WORDS
+			IMPORT FROM WIF
 		</p>
 		<div class="code-area col-xs-12">
-			<p>Wallet Seed</p>
-			<textarea name="seed" id="" class="form-control" rows="6" placeholder="Enter your secret 20 word phrase here to restore your vault."></textarea>
-			<p style="color:#ff0000;">set a password to protect your account</p>
+			<p>Account Wif Key</p>
+			<textarea name="wif" id="wif" class="form-control" rows="6" placeholder="Enter your Wif Key Here to import"></textarea>
 			<input type="password" class="form-control" placeholder="New Password (min 8 chars)" id="password">
 			<input type="password" class="form-control" placeholder="Confirm Password" id="confirm-password">
 			<div>
@@ -25,7 +24,7 @@
 			</div>
 			<div class="btns">
 				<a class="cancel" href="AccountCreate.html">CANCEL</a>
-				<a class="confirm-input">OK</a>
+				<a class="confirm-input">IMPORT</a>
 			</div>
 		</div>
 	</div>

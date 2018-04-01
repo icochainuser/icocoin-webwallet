@@ -1,18 +1,21 @@
 {
     "manifest_version": 2,
-    "name": "Wallet",
-    "version": "1.0.0",
-    "description": "Wallet",
+    "name": "ICO COIN WALLET",
+    "version": "1.0.2",
+    "description": "ICO WEB Wallet",
     "icons":
     {
-        "16": "image/icon.png",
-        "48": "image/icon.png",
-        "128": "image/icon.png"
+        "16": "image/icon16.png",
+        "48": "image/icon48.png",
+        "128": "image/icon128.png"
+    },
+    "background": {
+        "scripts": ["js/background.js"]
     },
     "browser_action": 
     {
-        "default_icon": "image/icon.png",
-        "default_title": "Test Version",
+        "default_icon": "image/icon48.png",
+        "default_title": "ICO COIN WALLET",
         "default_popup": "AccountAuth.html"
     }
 }

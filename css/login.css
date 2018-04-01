@@ -1,4 +1,5 @@
-.login-container{
+.account-generate,
+.login-container {
 	overflow: hidden;
 	min-width: 345px;
 }
@@ -13,7 +14,7 @@
 	color: #777;
 	text-align: center;
 	font-weight:  bold;
-	margin: 30px 0 12px 0;
+	margin: 10px 0 12px 0;
 }
 .login-container .input-park .title-2{
 	font-size: 14px;
@@ -42,6 +43,7 @@
 	border-radius: 0;
 }
 .password-group a.confirm-btn,
+.password-group a.cancel-btn,
 .password-group a.back-to-login {
 	cursor: pointer;
 	text-align: center;
@@ -54,6 +56,11 @@
 	text-transform: uppercase;
 	border: 0;
 	margin: 12px auto 0 auto;
+}
+.password-group a.cancel-btn {
+	background: #e8e8e8;
+	color: #636363;
+	box-shadow: 0px 3px 6px rgba(232, 232, 232, 0.36);
 }
 .password-group a.back-to-login {
 	background: #0d8f20;
@@ -80,4 +87,9 @@
 .seed-warning {
 	display: block;
 	padding: 0 
+}
+p.error-msg {
+	color: #f00;
+	text-align: center;
+	padding: 4px 0;
 }

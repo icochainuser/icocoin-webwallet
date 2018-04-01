@@ -36,9 +36,10 @@
 	margin: 15px auto 0 auto;
 }
 .import-container .btns{
-	width: 60%;
+	width: 80%;
 	overflow: hidden;
 	margin: 0 auto 20px auto;
+	cursor: pointer;
 }
 .import-container .btns a:nth-child(1){
 	float: left;

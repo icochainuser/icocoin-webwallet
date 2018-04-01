@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0" />
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/login.css">
 	<script src="js/app.js"></script>
 	<title>Login</title>
@@ -19,13 +18,14 @@
 				ICO WALLET
 			</p>
 			<p class="title-2">
-				Enter your login password
+				your balance: <span class="send-balance">?</span>
 			</p>
 			<div class="password-group">
-				<input type="password" class="form-control" placeholder="ico wallet password (min 8 chars)" id="password">
+				<input type="text" class="form-control" placeholder="ico wallet address (min 8 chars)" id="toaddress"><br>
+				<input type="text" class="form-control" placeholder="amount (min 0.001 ICO)" id="sendamount">
 				<p class="error-msg"></p>
-				<a class="confirm-btn">LOGIN</a>
-				<a href="AccountLogin_Seed.html" class="import">Restore from seed words</a>
+				<a class="confirm-btn">SEND</a>
+				<a class="cancel-btn" href="AccountHome.html">CANCEL</a>
 			</div>
 		</div>
 	</div>

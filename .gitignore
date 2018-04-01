@@ -1,2 +1,4 @@
-app.js
+js/app.js
+js/background.js
 compile.sh
+compilebg.sh

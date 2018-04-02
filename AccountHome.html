@@ -6,7 +6,9 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/account.css">
-	<script src="js/app.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/clipboard.min.js"></script>
+	<script type="text/javascript" src="js/clipboard.init.js"></script>
 	<title>Account</title>
 </head>
 <body>
@@ -37,6 +39,10 @@
 	<div class="menu-overlay"></div>
 	<div class="menu-content">
 		<div class="popup-item">
+			<span class="acc-copy-address" data-clipboard-text="">Copy Address</span>
+			<span>Copy your ICO address to clipboard</span>
+		</div>
+		<div class="popup-item">
 			<span class="acc-logout">Logout</span>
 			<span>You need to enter your password to access to your account</span>
 		</div>
@@ -45,5 +51,6 @@
 			<span>You need to enter your seed words to restore your account</span>
 		</div>
 	</div>
+	<div class="clipboard-success-msg">Copied</div>
 </body>
 </html>

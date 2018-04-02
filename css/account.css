@@ -167,8 +167,8 @@
 }
 .menu-content .popup-item {
 	height: 88px;
-	background: #fcebdb;
-	color: #F00;
+	background: #000;
+	color: #999;
 	cursor: pointer;
 }
 .menu-content .popup-item span {
@@ -181,9 +181,9 @@
 	padding: 8px 0;
 	height: 40px;
 	line-height: 24px;
-	background: #f2a55c;
+	background: #000;
 	font-size: 18px;
-	color: #fff;
+	color: #c7c7c7;
 	-webkit-transition: all .5s;   
 	-moz-transition: all .5s;   
 	-ms-transition: all .5s;   
@@ -191,14 +191,32 @@
 	transition: all .5s;  
 }
 .menu-content .popup-item span:nth-child(1):hover {
-	background: #F7861C;
+	color: #fff;
 }
 .menu-content .popup-item span:nth-child(2) {
 	padding: 0 24px;
 	height: 48px;
 	font-size: 12px;
 }
+.menu-content .popup-item:nth-child(1) span:nth-child(2) {
+	height: 24px;
+}
+.menu-content .popup-item:nth-child(1)  {
+	height: 64px;
+}
 .transaction-view-more {
 	text-align: center;
 	text-decoration: none;
+}
+.clipboard-success-msg {
+	background: rgba(0,0,0,0.8);
+	color: #fff;
+	width: 104px;
+	text-align: center;
+	position: absolute;
+	top: 90px;
+	padding: 8px 20px;
+	margin: 0 calc(50% - 52px);
+	z-index: 15;
+	display: none;
 }

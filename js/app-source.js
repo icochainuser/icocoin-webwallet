@@ -171,6 +171,7 @@ let accountHome = function() {
 	var kp = getKeyPair()
 	$('.ico-address').text(kp.getAddress()).attr('title', 'Your ICO Address: '+kp.getAddress()).attr('href', apihost + '/address/' + kp.getAddress())
 	$('.transaction-view-more a').attr('href', apihost + '/address/' + kp.getAddress())
+	$('.acc-copy-address').attr('data-clipboard-text', kp.getAddress())
 	// logout
 	$('.acc-logout').click(() => {
 		localStorage.setItem('authpwd', '')
@@ -195,9 +196,15 @@ let accountHome = function() {
 		$('.menu-content').slideDown()
 	})
 	// menu close
-	$('.menu-overlay').click(() => {
+	$('.menu-overlay,.acc-copy-address').click(function() {
 		$('.menu-overlay').fadeOut()
 		$('.menu-content').slideUp()
+		if ($(this).hasClass('acc-copy-address')) {
+			$('.clipboard-success-msg').fadeIn()
+			setTimeout(() => {
+				$('.clipboard-success-msg').fadeOut()
+			}, 2000)
+		}
 	})
 	// load balance
 	if (localStorage.getItem('account_balance')) {

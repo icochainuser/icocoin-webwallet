@@ -5,6 +5,8 @@
 .account-container .top-title{
 	padding: 0 15px;
 	background: #fff;
+	overflow: hidden;
+	border-bottom: 1px dashed #eee;
 }
 .account-generate textarea {
 	resize: none;
@@ -78,7 +80,6 @@
 }
 .account-container .transaction{
 	padding: 10px 15px 0px 15px;
-	margin-top: 10px;
 	background: #fff;
 }
 .account-container .transaction h4{
@@ -183,7 +184,7 @@
 	line-height: 24px;
 	background: #000;
 	font-size: 18px;
-	color: #c7c7c7;
+	color: #F7861C;
 	-webkit-transition: all .5s;   
 	-moz-transition: all .5s;   
 	-ms-transition: all .5s;   
@@ -207,6 +208,7 @@
 .transaction-view-more {
 	text-align: center;
 	text-decoration: none;
+	padding: 10px 0;
 }
 .clipboard-success-msg {
 	background: rgba(0,0,0,0.8);

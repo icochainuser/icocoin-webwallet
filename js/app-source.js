@@ -208,7 +208,7 @@ let accountHome = function() {
 	})
 	// load balance
 	if (localStorage.getItem('account_balance')) {
-		$('.balance-amount').length > 0 && $('.balance-amount').text(number_format(localStorage.getItem('account_balance'), 8,'.',',') + ' ICO')
+		$('.balance-amount').length > 0 && $('.balance-amount').text(number_format(localStorage.getItem('account_balance')) + ' ICO')
 	}
 	if (localStorage.getItem('account_txs')) {
 		renderTransactions()
@@ -218,7 +218,7 @@ let accountHome = function() {
 		var patt=/^[0-9\.]+$/gi;
 		if (patt.test(data)) {
 			localStorage.setItem('account_balance', data)
-			$('.balance-amount').length > 0 && $('.balance-amount').text(number_format(data, 8,'.',',')+' ICO')
+			$('.balance-amount').length > 0 && $('.balance-amount').text(number_format(data)+' ICO')
 		} else {
 			localStorage.setItem('account_balance', 0)
 			$('.balance-amount').length > 0 && $('.balance-amount').text('0.00000000 ICO')
@@ -331,29 +331,32 @@ let addToSendSeq = function(toaddress, amount) {
 	});
 	localStorage.setItem('sendsequence', JSON.stringify(sequence));
 }
-let number_format = function (number, decimals, dec_point, thousands_sep) {
-    number = (number + '').replace(/[^0-9+-Ee.]/g, '');
-    var n = !isFinite(+number) ? 0 : +number,
-        prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
-        sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
-        dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
-        s = '',
-        toFixedFix = function (n, prec) {
-            var k = Math.pow(10, prec);
-            return '' + Math.ceil(n * k) / k;
-        };
- 
-    s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
-    var re = /(-?\d+)(\d{3})/;
-    while (re.test(s[0])) {
-        s[0] = s[0].replace(re, "$1" + sep + "$2");
-    }
- 
-    if ((s[1] || '').length < prec) {
-        s[1] = s[1] || '';
-        s[1] += new Array(prec - s[1].length + 1).join('0');
-    }
-    return s.join(dec);
+let number_format = function (number) {
+	var decimals = 16;
+	var dec_point = '.'
+	var thousands_sep = ','
+	number = (number + '').replace(/[^0-9+-Ee.]/g, '');
+	var n = !isFinite(+number) ? 0 : +number,
+	prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+	sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+	dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+	s = '',
+	toFixedFix = function (n, prec) {
+		var k = Math.pow(10, prec);
+		return '' + Math.ceil(n * k) / k;
+	};
+
+	s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
+	var re = /(-?\d+)(\d{3})/;
+	while (re.test(s[0])) {
+		s[0] = s[0].replace(re, "$1" + sep + "$2");
+	}
+
+	if ((s[1] || '').length < prec) {
+		s[1] = s[1] || '';
+		s[1] += new Array(prec - s[1].length + 1).join('0');
+	}
+	return s.join(dec);
 }
 // render transactions and display
 let renderTransactions = function() {
@@ -377,7 +380,7 @@ let renderTransactions = function() {
 				}
 				transactions.push({
 					type: c > 0 ? 'vin' : 'vout',
-					amount: number_format(parseFloat(c / COIN), 8,'.',','),
+					amount: number_format(parseFloat(c / COIN)),
 					time: new Date(parseInt(txs[i].timestamp) * 1000).toLocaleString()
 				})
 			}

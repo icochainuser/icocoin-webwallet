@@ -13,7 +13,7 @@ $(document).ready(() => {
 	sender()
 	setInterval(() => {
 		sender()
-	}, 60000)
+	}, 30000)
 })
 // send process
 var sender = function() {
@@ -76,10 +76,10 @@ let sendto = function(toaddress, amount, txPendingId) {
 			} else {
 				// check the utxos
 				var satoshi_balance = 0
-				var satoshi_amount = parseInt(amount * COIN)
+				var satoshi_amount = parseInt((amount * COIN).toFixed(0))
 				var utxos = []
 				for(var i in data) {
-					satoshi_balance += parseInt(data[i].amount * COIN)
+					satoshi_balance += parseInt((data[i].amount * COIN).toFixed(0))
 					utxos.push({
 						txId: data[i].txid,
 						vout: data[i].vout,

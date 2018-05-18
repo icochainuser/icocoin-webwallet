@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0" />
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/account.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/clipboard.min.js"></script>
+	<script type="text/javascript" src="js/clipboard.init.js"></script>
+	<title>Account</title>
+	<style>
+	.eth-balance,
+	.eth-address,
+	.ico-desc {
+		text-align: center;
+		font-size: 18px;
+		font-weight: bold;
+		color: #666666;
+		padding: 4px;
+	}
+	.eth-balance span,
+	.eth-address span {
+		display: block;
+		font-size: 12px;
+		padding: 4px;
+	}
+	.join-ico {
+		height: 32px;
+		line-height: 32px;
+		padding: 2px 8px;
+		background: #F7861C;
+		width: 60%;
+		margin: 10px 20%;
+		color: #fff;
+		text-align: center;
+		font-weight: bold;
+	}
+	.account-container.ico {
+		display: none;
+	}
+	</style>
+</head>
+<body>
+	<div class="asset-switch">
+		<a href="AccountHome.html">ICO</a>
+		<a class="active">ETH</a>
+	</div>
+	<div class="account-container eth">
+		<div class="eth-logo">
+		</div>
+		<div class="eth-address">
+			YOUR ETH ADDRESS
+			<span class="acc-copy-address" data-clipboard-text=""></span>
+		</div>
+		<div class="eth-balance">
+			YOUR ETH BALANCE
+			<span>loading...</span>
+		</div>
+		<div class="join-ico">
+			JOIN ICO
+		</div>
+	</div>
+	<div class="account-container ico">
+		<div class="ico-logo">
+		</div>
+		<div class="eth-balance">
+			YOUR ETH BALANCE
+			<span>loading...</span>
+		</div>
+		<div class="ico-desc">
+			<p>you are joining the ico pre-sale, all your eth will be send to ico team to get ico coin, ico coin will send to current account so you must keep your account safety.
+			</p>
+			<p>
+				Details: <a href="https://coin.ico.la" target="_blank">https://coin.ico.la</a>
+			</p>
+		</div>
+		<div class="join-ico agree">
+			AGREE AND JOIN
+		</div>
+	</div>
+	<div class="menu-overlay"></div>
+	<div class="clipboard-success-msg">Address Copied</div>
+</body>
+</html>

@@ -6,6 +6,18 @@
 	padding: 0 15px;
 	background: #fff;
 }
+.account-container .eth-logo,
+.account-container .ico-logo {
+	width: 200px;
+	height: 200px;
+	margin: 8px auto;
+	background: url('../image/eth.png');
+}
+.account-container .ico-logo {
+	width: 128px;
+	height: 128px;
+	background: url('../image/icon128.png');
+}
 .account-generate textarea {
 	resize: none;
 	padding: 12px;
@@ -219,4 +231,17 @@
 	margin: 0 calc(50% - 52px);
 	z-index: 15;
 	display: none;
+}
+.asset-switch a {
+	display: block;
+	float: left;
+	width: 50%;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	border-bottom: solid 1px #F7861C;
+}
+.asset-switch a.active {
+	background: #F7861C;
+	color: #fff;
 }

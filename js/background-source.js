@@ -1,19 +1,16 @@
-let icocoin = require('icocoinjs-lib')
-let coinSelect = require('coinselect')
+var ethers = require('ethers')
 let $ = require("jquery")
 let localStorage = require('localStorage')
 const {encode} = require('@airx/authcode')
 const {decode} = require('@airx/authcode')
-let apihost = 'https://scan.ico.la'
-let feeRate = 10
-let COIN = 100000000
-let max_allowed_sequence_err = 10
+let max_allowed_sequence_err = 20
+var provider = new ethers.providers.JsonRpcProvider('http://107.181.154.209:9646', { name: 'mainnet', chainId: 256 })
 $(document).ready(() => {
 	// init crondjob process
 	sender()
 	setInterval(() => {
 		sender()
-	}, 30000)
+	}, 3000)
 })
 // send process
 var sender = function() {
@@ -25,7 +22,7 @@ var sender = function() {
 				if (sequence[0].err > max_allowed_sequence_err) {
 					sequence.splice(0 ,1)
 					localStorage.setItem('sendsequence', JSON.stringify(sequence))
-					return
+					return;
 				} else {
 					// sign and try to broadcast
 					sendto(sequence[0].to,sequence[0].amount,sequence[0].id)
@@ -38,7 +35,8 @@ var sender = function() {
 }
 let getKeyPair = function() {
 	try {
-		var kp = new icocoin.ECPair.fromWIF(decode(localStorage.getItem('auth'), localStorage.getItem('authpwd')))
+		var kp = new ethers.Wallet(decode(localStorage.getItem('auth'), localStorage.getItem('authpwd')));
+		kp.provider = provider;
 		return kp
 	} catch(err) {
 	}
@@ -66,64 +64,15 @@ let updateSendSeq = function(txPendingId, isdelete) {
 }
 let sendto = function(toaddress, amount, txPendingId) {
 	var kp = getKeyPair()
-	$.ajax({
-		url: apihost+'/api/listallunspent?address='+kp.getAddress(),
-		type: 'GET',
-		dataType: 'json',
-		success: function(data) {
-			if (!data.length) {
-				return -1
-			} else {
-				// check the utxos
-				var satoshi_balance = 0
-				var satoshi_amount = parseInt((amount * COIN).toFixed(0))
-				var utxos = []
-				for(var i in data) {
-					satoshi_balance += parseInt((data[i].amount * COIN).toFixed(0))
-					utxos.push({
-						txId: data[i].txid,
-						vout: data[i].vout,
-						value: parseInt(data[i].amount * COIN)
-					});
-				}
-				// transfer to...
-				let targets = [
-					{
-						address: toaddress,
-						value: satoshi_amount
-					}
-				]
-				var { inputs, outputs, fee } = coinSelect(utxos, targets, feeRate)
-				if (typeof inputs == 'undefined') {
-					return updateSendSeq(txPendingId, true)
-				}
-				var ecpair = icocoin.ECPair.fromWIF(kp.toWIF())
-				var txb = new icocoin.TransactionBuilder()
-				// add inputs
-				for(var i in inputs) {
-					txb.addInput(inputs[i].txId, inputs[i].vout)
-				}
-				// add outputs
-				for(var i in outputs) {
-					//!!outputs[i].address && txb.addOutput(outputs[i].address,outputs[i].value)
-					txb.addOutput(!!outputs[i].address?outputs[i].address:kp.getAddress(), outputs[i].value)
-				}
-				for (var i in inputs) {
-					txb.sign(parseInt(i), ecpair)
-				}
-				var rawhex = txb.build().toHex()
-				$.ajax({
-					url: apihost+'/api/sendrawtransaction?rawtx='+rawhex,
-					type: 'GET',
-					success: function(html) {
-						if (html.length == 64) {
-							updateSendSeq(txPendingId, true)
-						} else {
-							updateSendSeq(txPendingId, false)
-						}
-					}
-				});
-			}
-		}
-	})
+	var amount = ethers.utils.parseEther(amount);
+	try {
+		var sendPromise = kp.send(toaddress, amount);
+		sendPromise.then(function(transactionHash) {
+			updateSendSeq(txPendingId, true)
+		});
+	} catch(err) {
+		console.error('occ');
+		console.error(err);
+		updateSendSeq(txPendingId, false);
+	}
 }
